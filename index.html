@@ -3,76 +3,85 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Noche Inolvidable</title>
+<title>Noche Eterna</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-body{
+*{
     margin:0;
     padding:0;
-    font-family: 'Cormorant Garamond', serif;
-    background: radial-gradient(circle at center, #14001f 0%, #000 80%);
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Playfair Display', serif;
+    background: radial-gradient(circle at 30% 30%, #2a003f, #000814 70%);
     color:white;
     overflow-x:hidden;
 }
 
-/* Partículas sutiles */
+/* Aurora romántica animada */
 body::before{
     content:"";
     position:fixed;
-    width:100%;
-    height:100%;
-    background-image:radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
-    background-size:3px 3px;
-    animation: sparkle 8s linear infinite;
+    width:200%;
+    height:200%;
+    background: radial-gradient(circle at 70% 40%, rgba(255,0,150,0.15), transparent 40%),
+                radial-gradient(circle at 30% 70%, rgba(128,0,255,0.15), transparent 40%);
+    animation: aurora 12s ease-in-out infinite alternate;
     z-index:-1;
 }
 
-@keyframes sparkle{
-    from{transform:translateY(0);}
-    to{transform:translateY(-10px);}
+@keyframes aurora{
+    0%{transform:translate(-10%,-10%) scale(1);}
+    100%{transform:translate(-5%,-5%) scale(1.1);}
 }
 
-.video-container{
-    width:100%;
+/* Video elegante */
+.video-wrapper{
     display:flex;
     justify-content:center;
-    margin-top:40px;
+    margin:60px 0 40px 0;
 }
 
 iframe{
     width:90%;
     max-width:900px;
-    height:400px;
-    border-radius:25px;
-    box-shadow:0 0 40px rgba(255,0,200,0.4);
+    height:420px;
+    border-radius:30px;
+    border:2px solid rgba(255,255,255,0.2);
+    box-shadow:
+        0 0 40px rgba(255,0,200,0.3),
+        0 0 80px rgba(128,0,255,0.2);
 }
 
-.container{
+/* Carta principal */
+.card{
     max-width:850px;
-    margin:60px auto;
-    padding:50px;
+    margin:0 auto 80px auto;
+    padding:60px;
     background: rgba(255,255,255,0.06);
-    backdrop-filter: blur(20px);
-    border-radius:30px;
+    backdrop-filter: blur(25px);
+    border-radius:35px;
+    border:1px solid rgba(255,215,0,0.3);
     box-shadow:
-        0 0 60px rgba(255,0,200,0.2),
+        0 0 60px rgba(255,215,0,0.15),
         inset 0 0 40px rgba(255,255,255,0.05);
     text-align:center;
-    animation: fadeIn 2s ease forwards;
+    animation: fadeUp 2s ease forwards;
 }
 
-@keyframes fadeIn{
-    from{opacity:0; transform:translateY(30px);}
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(40px);}
     to{opacity:1; transform:translateY(0);}
 }
 
 h1{
     font-family:'Great Vibes', cursive;
-    font-size:65px;
-    margin-bottom:30px;
-    background: linear-gradient(90deg,#ff66cc,#cc33ff);
+    font-size:70px;
+    margin-bottom:35px;
+    background:linear-gradient(90deg,#ff66cc,#cc33ff,#ffd700);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
 }
@@ -83,38 +92,38 @@ p{
     margin-bottom:25px;
 }
 
-/* Neón rosado */
+/* Neon Rosado */
 .neon-pink{
+    margin-top:35px;
     font-size:24px;
-    margin-top:30px;
-    color:#ff66cc;
+    color:#ff4da6;
     text-shadow:
-        0 0 8px #ff66cc,
-        0 0 15px #ff33aa,
-        0 0 25px #ff1a8c;
+        0 0 10px #ff4da6,
+        0 0 20px #ff1a8c,
+        0 0 40px #ff0066;
 }
 
-/* Neón morado */
+/* Neon Morado */
 .neon-purple{
-    font-size:26px;
-    margin-top:25px;
-    color:#cc33ff;
+    margin-top:30px;
+    font-size:28px;
+    color:#c44dff;
     text-shadow:
-        0 0 8px #cc33ff,
-        0 0 20px #b300ff,
-        0 0 35px #9900cc;
+        0 0 10px #c44dff,
+        0 0 25px #a600ff,
+        0 0 45px #8000cc;
 }
 
-/* Dorado elegante */
-.gold-promise{
+/* Promesa Dorada */
+.gold{
+    margin-top:35px;
     font-size:24px;
-    margin-top:30px;
-    background: linear-gradient(90deg,#ffd700,#ffcc33,#fff1a8);
+    background: linear-gradient(90deg,#ffd700,#ffcc33,#fff5b1,#ffd700);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
     text-shadow:
-        0 0 10px rgba(255,215,0,0.6),
-        0 0 20px rgba(255,200,0,0.4);
+        0 0 15px rgba(255,215,0,0.7),
+        0 0 30px rgba(255,200,0,0.4);
 }
 
 footer{
@@ -124,7 +133,8 @@ footer{
 }
 
 @media(max-width:768px){
-    iframe{height:220px;}
+    iframe{height:230px;}
+    .card{padding:35px;}
     h1{font-size:45px;}
     p{font-size:18px;}
 }
@@ -133,19 +143,19 @@ footer{
 
 <body>
 
-<div class="video-container">
+<div class="video-wrapper">
     <iframe 
         src="https://www.youtube.com/embed/rLSsaCiwJn8" 
-        title="Canción Especial"
+        title="Nuestra Canción"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen>
     </iframe>
 </div>
 
-<div class="container">
-    <h1>Para el Amor de Mi Vida</h1>
-  <p><strong class="neon-purple">MI AMOR ETERNO</strong></p>
+<div class="card">
+ <h1>Para el Amor de Mi Vida</h1>
+  <p><strong class="neon-purple">MI AMOR, MI VIDA ENTERA, MI NIÑA LINDA</strong></p>
     <p>
     En esta noche mágica de sábado, 21 de febrero de 2026, mientras la oscuridad se despliega suavemente sobre el mundo y las estrellas comienzan a brillar en el vasto cielo, siento que cada destello es un recordatorio de la luz que traes a mi vida. En este instante, el tiempo parece detenerse, y en la quietud de la noche, mis pensamientos giran en torno a una sola cosa: a ti, a nosotros, y al profundo amor que me inunda, un amor que crece y se expande como el universo mismo.Esta noche no es simplemente una noche cualquiera; es una de esas noches que parecen estar llenas de promesas, de sueños compartidos y de anhelos que flotan en el aire, como si el destino mismo nos estuviera guiando a un lugar donde solo existimos tú y yo. Mi corazón late con una fuerza inquebrantable, como un tambor que resuena en cada rincón de mi ser, porque lleva tu nombre grabado en cada latido, en cada suspiro, en cada pensamiento que me envuelve.No fue un simple encuentro; fue un terremoto dulce que transformó mi existencia de una manera que nunca podría haber imaginado. Cambiaste la manera en que sonrío, la forma en que sueño, y la razón por la que me esfuerzo cada día. Mis días grises se convirtieron en amaneceres llenos de esperanza y colores vibrantes, mientras mis dudas se desvanecieron, dejando solo certezas que me llenan de paz. Cambiaste mi mundo sin siquiera darte cuenta, y por eso, te estoy eternamente agradecido.A veces, me detengo a pensar en cómo es posible que exista alguien tan maravillosamente perfecto como tú. La forma en que combinas dulzura y carácter, ternura y fuego, calma y pasión es un misterio que me fascina profundamente. Eres mi refugio en los momentos de tormenta y, al mismo tiempo, la chispa que enciende cada rincón de mi ser. Tu presencia es un bálsamo para mi alma cansada, y en tus brazos encuentro la paz que tanto anhelo.Esta noche, quiero confesarte algo que tal vez ya sabes, pero que nunca me cansaré de repetir: te amo con una intensidad que me sorprende a mí mismo. No es un amor superficial ni pasajero; es un amor que se construye en cada conversación profunda, en cada mirada cómplice, en cada silencio compartido que habla más que mil palabras. Es un amor que crece incluso en la distancia, que desafía las circunstancias y que nació para permanecer en el tiempo.Me enamora tu sonrisa, esa que ilumina incluso los días más oscuros. Me enamora cómo brillan tus ojos cuando hablas de tus pasiones, llenos de vida y energía. Me enamora tu voz, incluso cuando pronuncias las palabras más simples, porque cada sílaba lleva consigo un eco de tu esencia. Me enamora la forma en que conviertes cualquier instante, por pequeño que sea, en un recuerdo inolvidable que atesoro en mi corazón.Me enamora tu risa contagiosa, esa que no puedes contener y que resuena en mi alma. Me enamora la seriedad con la que enfrentas los desafíos y la vulnerabilidad que muestras cuando buscas apoyo. Me enamora tu fortaleza, tu valentía y, sobre todo, tu capacidad de ser auténtica en cada momento. Me enamora absolutamente todo de ti, cada faceta, cada matiz.Si pudiera describir lo que siento, diría que eres mi lugar favorito en el mundo. No importa dónde estemos, no importa la hora del día, ni si el día fue difícil o perfecto. Si estoy contigo, estoy en casa, y eso es un sentimiento que no tiene comparación. Eres el refugio donde mi corazón encuentra descanso, donde mis sueños cobran vida y donde mis anhelos se convierten en realidades palpables.Y esta noche… quiero imaginar que estamos bajo el mismo cielo estrellado, sintiendo el suave roce del viento acariciando tu cabello. Quiero que mis manos encuentren las tuyas, entrelazándose en un abrazo que trasciende el tiempo y el espacio. Quiero que no existan relojes, ni preocupaciones, ni ruido alguno que interrumpa nuestra conexión. Solo tú y yo, compartiendo miradas que expresan todo lo que las palabras no pueden decir. Solo nuestros corazones latiendo al unísono, hablando en un lenguaje que solo nosotros entendemos.Quiero que sepas que contigo no solo siento amor; también siento un deseo ardiente, admiración profunda, respeto inquebrantable y un orgullo que me llena de felicidad. Me haces querer ser mejor, me inspiras a crecer y me das la fuerza que a veces me falta. Eres mi paz en medio del caos, mi refugio en la tormenta, y mi razón para seguir adelante.Eres mi calma y mi tormenta, mi sueño hecho realidad y mi casualidad más hermosa. Eres la decisión más firme que he tomado en mi vida, y si pudiera abrazarte ahora mismo, lo haría con una fuerza que transmitiera todo lo que no cabe en palabras. Te abrazaría como quien protege un tesoro invaluable, como quien sostiene su futuro con delicadeza y amor. Te abrazaría lentamente, pero con la certeza de que no quiero soltarte nunca, porque eres lo más precioso que tengo.Quiero construir recuerdos contigo que perduren en el tiempo. Quiero viajar a lugares lejanos contigo, reír hasta que nuestros estómagos duelan, discutir y reconciliarnos, emergiendo más fuertes que antes. Quiero que nuestros planes no sean solo sueños lejanos, sino metas que cumplimos de la mano, creando una historia que no se cuente en capítulos cortos, sino en años llenos de amor y complicidad.Si alguna vez dudas de cuánto te amo, recuerda esta noche. Recuerda que hubo alguien que, en un sábado de febrero, con el corazón completamente abierto y sin reservas, decidió escribirte estas palabras. Sin miedo, sin límites, porque cuando se trata de ti, no existen barreras que puedan detener lo que siento.Te amo en tus días buenos y en los difíciles. Te amo cuando sonríes, cuando lloras, cuando brillas y incluso cuando no te das cuenta de lo increíble que eres. Eres todo lo que he deseado y más, y si el universo me diera la oportunidad de elegir de nuevo, en cualquier vida, en cualquier tiempo, te volvería a elegir a ti. Siempre.Esta noche, mientras el mundo duerme y las estrellas brillan en el firmamento, mi corazón está despierto, pronunciando tu nombre en un susurro silencioso. Está soñando contigo, aunque no esté dormido, latiendo con la certeza de que amar así es un regalo que no todos tienen la fortuna de experimentar.Cada latido de mi corazón es un eco de mi amor por ti, un recordatorio constante de que en este vasto universo, encontrarte fue el mayor regalo que me ha sido otorgado. En cada rincón de mi ser, hay una parte de mí que te pertenece, que anhela tu cercanía y que vive por esos momentos en los que nuestras almas se entrelazan.Gracias por existir en mi vida, por quedarte a mi lado, por amarme con la misma intensidad con la que yo te amo. Te amo más de lo que las palabras pueden contener, más de lo que el cielo puede abarcar y más de lo que cualquier promesa puede prometer.Quiero que sepas que mi amor por ti es como un río que fluye sin cesar, que nunca se detiene y que siempre encuentra su camino, incluso en los momentos más difíciles. Es un amor que no conoce fronteras, que no se rinde ante los obstáculos, que se fortalece con cada desafío que enfrentamos juntos.Y esta noche… más que nunca… <strong>eres mi todo. ❤️</strong> uno de mis sueños. Te amo con una profundidad que a veces me asusta, porque sé que lo que siento por ti no tiene límites. Te amo más allá de las palabras, más allá de las estrellas, más allá de lo que el tiempo puede medir.Así que, mientras el mundo se sumerge en el silencio de la noche, quiero que sepas que mi corazón está despierto, latiendo solo por ti. Está soñando contigo, incluso en la vigilia, y está lleno de la certeza de que nuestro amor es un regalo que nunca dejaré de valorar.Y así, bajo este hermoso cielo estrellado, con el viento susurrando dulces melodías, quiero que sepas que siempre estaré aquí, amándote con cada fibra de mi ser, con cada latido de mi corazón, y con cada suspiro que escapa de mis labios. Porque tú eres mi vida, mi amor, mi todo. 
     </p>
@@ -166,7 +176,7 @@ footer{
     </div>
 
     <footer>
-        Sábado 21 de Febrero de 2026 — Una noche que quedará grabada para siempre ✨
+        Sábado 21 de Febrero de 2026 — Nuestra noche eterna ✨
     </footer>
 </div>
 
